@@ -242,6 +242,15 @@ services:
       #RabbitMQ__EventBus__ClientName: ${RabbitMQ__EventBus__ClientName}
       RabbitMQ__EventBus__ExchangeName: ${RabbitMQ__EventBus__ExchangeName}
       Redis__Configuration: ${Redis__Configuration}
+      EmailSenderOptions__FromAddress: ${EmailSenderOptions__FromAddress}
+      EmailSenderOptions__FromDisplayName: ${EmailSenderOptions__FromDisplayName}
+      EmailSenderOptions__SmtpEmailOptions__Host: ${EmailSenderOptions__SmtpEmailOptions__Host}
+      EmailSenderOptions__SmtpEmailOptions__Port: ${EmailSenderOptions__SmtpEmailOptions__Port}
+      EmailSenderOptions__SmtpEmailOptions__UserName: ${EmailSenderOptions__SmtpEmailOptions__UserName}
+      EmailSenderOptions__SmtpEmailOptions__Password: ${EmailSenderOptions__SmtpEmailOptions__Password}
+      EmailSenderOptions__SmtpEmailOptions__Domain: ${EmailSenderOptions__SmtpEmailOptions__Domain}
+      EmailSenderOptions__SmtpEmailOptions__EnableSsl: ${EmailSenderOptions__SmtpEmailOptions__EnableSsl}
+      EmailSenderOptions__MailKitOptions__SecureSocketOptions: ${EmailSenderOptions__MailKitOptions__SecureSocketOptions}
     volumes:
       - ./data/mytelegram/auth/logs:/app/Logs
     depends_on:
@@ -278,6 +287,15 @@ services:
       #RabbitMQ__EventBus__ClientName: ${RabbitMQ__EventBus__ClientName}
       RabbitMQ__EventBus__ExchangeName: ${RabbitMQ__EventBus__ExchangeName}
       Redis__Configuration: ${Redis__Configuration}
+      EmailSenderOptions__FromAddress: ${EmailSenderOptions__FromAddress}
+      EmailSenderOptions__FromDisplayName: ${EmailSenderOptions__FromDisplayName}
+      EmailSenderOptions__SmtpEmailOptions__Host: ${EmailSenderOptions__SmtpEmailOptions__Host}
+      EmailSenderOptions__SmtpEmailOptions__Port: ${EmailSenderOptions__SmtpEmailOptions__Port}
+      EmailSenderOptions__SmtpEmailOptions__UserName: ${EmailSenderOptions__SmtpEmailOptions__UserName}
+      EmailSenderOptions__SmtpEmailOptions__Password: ${EmailSenderOptions__SmtpEmailOptions__Password}
+      EmailSenderOptions__SmtpEmailOptions__Domain: ${EmailSenderOptions__SmtpEmailOptions__Domain}
+      EmailSenderOptions__SmtpEmailOptions__EnableSsl: ${EmailSenderOptions__SmtpEmailOptions__EnableSsl}
+      EmailSenderOptions__MailKitOptions__SecureSocketOptions: ${EmailSenderOptions__MailKitOptions__SecureSocketOptions}
     volumes:
       - ./data/mytelegram/session/logs:/app/Logs
     depends_on:
@@ -334,6 +352,15 @@ services:
       #RabbitMQ__EventBus__ClientName: ${RabbitMQ__EventBus__ClientName}
       RabbitMQ__EventBus__ExchangeName: ${RabbitMQ__EventBus__ExchangeName}
       Redis__Configuration: ${Redis__Configuration}
+      EmailSenderOptions__FromAddress: ${EmailSenderOptions__FromAddress}
+      EmailSenderOptions__FromDisplayName: ${EmailSenderOptions__FromDisplayName}
+      EmailSenderOptions__SmtpEmailOptions__Host: ${EmailSenderOptions__SmtpEmailOptions__Host}
+      EmailSenderOptions__SmtpEmailOptions__Port: ${EmailSenderOptions__SmtpEmailOptions__Port}
+      EmailSenderOptions__SmtpEmailOptions__UserName: ${EmailSenderOptions__SmtpEmailOptions__UserName}
+      EmailSenderOptions__SmtpEmailOptions__Password: ${EmailSenderOptions__SmtpEmailOptions__Password}
+      EmailSenderOptions__SmtpEmailOptions__Domain: ${EmailSenderOptions__SmtpEmailOptions__Domain}
+      EmailSenderOptions__SmtpEmailOptions__EnableSsl: ${EmailSenderOptions__SmtpEmailOptions__EnableSsl}
+      EmailSenderOptions__MailKitOptions__SecureSocketOptions: ${EmailSenderOptions__MailKitOptions__SecureSocketOptions}
     depends_on:
       mongodb:
         condition: service_healthy
@@ -429,6 +456,15 @@ services:
       #RabbitMQ__EventBus__ClientName: ${RabbitMQ__EventBus__ClientName}
       RabbitMQ__EventBus__ExchangeName: ${RabbitMQ__EventBus__ExchangeName}
       Redis__Configuration: ${Redis__Configuration}
+      EmailSenderOptions__FromAddress: ${EmailSenderOptions__FromAddress}
+      EmailSenderOptions__FromDisplayName: ${EmailSenderOptions__FromDisplayName}
+      EmailSenderOptions__SmtpEmailOptions__Host: ${EmailSenderOptions__SmtpEmailOptions__Host}
+      EmailSenderOptions__SmtpEmailOptions__Port: ${EmailSenderOptions__SmtpEmailOptions__Port}
+      EmailSenderOptions__SmtpEmailOptions__UserName: ${EmailSenderOptions__SmtpEmailOptions__UserName}
+      EmailSenderOptions__SmtpEmailOptions__Password: ${EmailSenderOptions__SmtpEmailOptions__Password}
+      EmailSenderOptions__SmtpEmailOptions__Domain: ${EmailSenderOptions__SmtpEmailOptions__Domain}
+      EmailSenderOptions__SmtpEmailOptions__EnableSsl: ${EmailSenderOptions__SmtpEmailOptions__EnableSsl}
+      EmailSenderOptions__MailKitOptions__SecureSocketOptions: ${EmailSenderOptions__MailKitOptions__SecureSocketOptions}
     volumes:
       - ./data/mytelegram/command-server/logs:/app/Logs
     depends_on:
@@ -527,6 +563,15 @@ services:
       #RabbitMQ__EventBus__ClientName: ${RabbitMQ__EventBus__ClientName}
       RabbitMQ__EventBus__ExchangeName: ${RabbitMQ__EventBus__ExchangeName}
       Redis__Configuration: ${Redis__Configuration}
+      EmailSenderOptions__FromAddress: ${EmailSenderOptions__FromAddress}
+      EmailSenderOptions__FromDisplayName: ${EmailSenderOptions__FromDisplayName}
+      EmailSenderOptions__SmtpEmailOptions__Host: ${EmailSenderOptions__SmtpEmailOptions__Host}
+      EmailSenderOptions__SmtpEmailOptions__Port: ${EmailSenderOptions__SmtpEmailOptions__Port}
+      EmailSenderOptions__SmtpEmailOptions__UserName: ${EmailSenderOptions__SmtpEmailOptions__UserName}
+      EmailSenderOptions__SmtpEmailOptions__Password: ${EmailSenderOptions__SmtpEmailOptions__Password}
+      EmailSenderOptions__SmtpEmailOptions__Domain: ${EmailSenderOptions__SmtpEmailOptions__Domain}
+      EmailSenderOptions__SmtpEmailOptions__EnableSsl: ${EmailSenderOptions__SmtpEmailOptions__EnableSsl}
+      EmailSenderOptions__MailKitOptions__SecureSocketOptions: ${EmailSenderOptions__MailKitOptions__SecureSocketOptions}
     volumes:
       - ./data/mytelegram/query-server/logs:/app/Logs
     depends_on:
