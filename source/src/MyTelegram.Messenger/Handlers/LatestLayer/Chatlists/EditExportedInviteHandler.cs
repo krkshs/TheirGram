@@ -18,6 +18,12 @@ internal sealed class EditExportedInviteHandler : RpcResultObjectHandler<MyTeleg
 {
     protected override Task<MyTelegram.Schema.IExportedChatlistInvite> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Chatlists.RequestEditExportedInvite obj)
     {
-        throw new NotImplementedException();
+        var result = new MyTelegram.Schema.TExportedChatlistInvite
+        {
+            Title = "TheirGram",
+            Url = "https://t.me/addlist/theregram_edited",
+            Peers = new MyTelegram.Schema.TVector<MyTelegram.Schema.IPeer>()
+        };
+        return Task.FromResult<MyTelegram.Schema.IExportedChatlistInvite>(result);
     }
 }

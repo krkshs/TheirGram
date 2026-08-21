@@ -14,6 +14,13 @@ internal sealed class CheckChatlistInviteHandler : RpcResultObjectHandler<MyTele
 {
     protected override Task<MyTelegram.Schema.Chatlists.IChatlistInvite> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Chatlists.RequestCheckChatlistInvite obj)
     {
-        throw new NotImplementedException();
+        var result = new MyTelegram.Schema.Chatlists.TChatlistInvite
+        {
+            Title = new MyTelegram.Schema.TTextWithEntities { Text = "TheirGram", Entities = new MyTelegram.Schema.TVector<MyTelegram.Schema.IMessageEntity>() },
+            Peers = new MyTelegram.Schema.TVector<MyTelegram.Schema.IPeer>(),
+            Chats = new MyTelegram.Schema.TVector<MyTelegram.Schema.IChat>(),
+            Users = new MyTelegram.Schema.TVector<MyTelegram.Schema.IUser>()
+        };
+        return Task.FromResult<MyTelegram.Schema.Chatlists.IChatlistInvite>(result);
     }
 }

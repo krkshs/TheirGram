@@ -20,6 +20,25 @@ internal sealed class ExportChatlistInviteHandler : RpcResultObjectHandler<MyTel
 {
     protected override Task<MyTelegram.Schema.Chatlists.IExportedChatlistInvite> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Chatlists.RequestExportChatlistInvite obj)
     {
-        throw new NotImplementedException();
+        var filter = new MyTelegram.Schema.TDialogFilter
+        {
+            Id = 1,
+            Title = new MyTelegram.Schema.TTextWithEntities { Text = obj.Title ?? "TheirGram", Entities = new MyTelegram.Schema.TVector<MyTelegram.Schema.IMessageEntity>() },
+            PinnedPeers = new MyTelegram.Schema.TVector<MyTelegram.Schema.IInputPeer>(),
+            IncludePeers = new MyTelegram.Schema.TVector<MyTelegram.Schema.IInputPeer>(),
+            ExcludePeers = new MyTelegram.Schema.TVector<MyTelegram.Schema.IInputPeer>()
+        };
+        var invite = new MyTelegram.Schema.TExportedChatlistInvite
+        {
+            Title = obj.Title ?? "TheirGram",
+            Url = "https://t.me/addlist/theregram_" + Guid.NewGuid().ToString("N").Substring(0, 8),
+            Peers = new MyTelegram.Schema.TVector<MyTelegram.Schema.IPeer>()
+        };
+        var result = new MyTelegram.Schema.Chatlists.TExportedChatlistInvite
+        {
+            Filter = filter,
+            Invite = invite
+        };
+        return Task.FromResult<MyTelegram.Schema.Chatlists.IExportedChatlistInvite>(result);
     }
 }

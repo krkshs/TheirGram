@@ -15,6 +15,12 @@ internal sealed class GetChatlistUpdatesHandler : RpcResultObjectHandler<MyTeleg
 {
     protected override Task<MyTelegram.Schema.Chatlists.IChatlistUpdates> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Chatlists.RequestGetChatlistUpdates obj)
     {
-        throw new NotImplementedException();
+        var result = new MyTelegram.Schema.Chatlists.TChatlistUpdates
+        {
+            MissingPeers = new MyTelegram.Schema.TVector<MyTelegram.Schema.IPeer>(),
+            Chats = new MyTelegram.Schema.TVector<MyTelegram.Schema.IChat>(),
+            Users = new MyTelegram.Schema.TVector<MyTelegram.Schema.IUser>()
+        };
+        return Task.FromResult<MyTelegram.Schema.Chatlists.IChatlistUpdates>(result);
     }
 }

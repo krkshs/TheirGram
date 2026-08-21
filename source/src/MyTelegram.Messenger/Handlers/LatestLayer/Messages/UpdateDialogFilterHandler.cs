@@ -26,21 +26,29 @@ internal sealed class UpdateDialogFilterHandler(ICommandBus commandBus, IPeerHel
             await commandBus.PublishAsync(command, default);
         }
         else
-        {
-            if (obj.Filter is TDialogFilter f)
             {
-                var pinnedPeers = f.PinnedPeers.Select(p => GetInputPeer(input, p)).ToList();
-                var includePeers = f.IncludePeers.Select(p => GetInputPeer(input, p)).ToList();
-                var excludePeers = f.ExcludePeers.Select(p => GetInputPeer(input, p)).ToList();
-                var filter = new DialogFilter(obj.Id, f.Contacts, f.NonContacts, f.Groups, f.Broadcasts, f.Bots, f.ExcludeMuted, f.ExcludeRead, f.ExcludeArchived, f.TitleNoanimate, f.Title, f.Emoticon, f.Color, pinnedPeers, includePeers, excludePeers, false);
-                var command = new UpdateDialogFilterCommand(DialogFilterId.Create(input.UserId, obj.Id), input.ToRequestInfo(), input.UserId, filter);
-                await commandBus.PublishAsync(command, default);
+                if (obj.Filter is TDialogFilter f)
+                {
+                    var pinnedPeers = f.PinnedPeers.Select(p => GetInputPeer(input, p)).ToList();
+                    var includePeers = f.IncludePeers.Select(p => GetInputPeer(input, p)).ToList();
+                    var excludePeers = f.ExcludePeers.Select(p => GetInputPeer(input, p)).ToList();
+                    var filter = new DialogFilter(obj.Id, f.Contacts, f.NonContacts, f.Groups, f.Broadcasts, f.Bots, f.ExcludeMuted, f.ExcludeRead, f.ExcludeArchived, f.TitleNoanimate, f.Title, f.Emoticon, f.Color, pinnedPeers, includePeers, excludePeers, false);
+                    var command = new UpdateDialogFilterCommand(DialogFilterId.Create(input.UserId, obj.Id), input.ToRequestInfo(), input.UserId, filter);
+                    await commandBus.PublishAsync(command, default);
+                }
+                else if (obj.Filter is TDialogFilterChatlist cf)
+                {
+                    var pinnedPeers = cf.PinnedPeers.Select(p => GetInputPeer(input, p)).ToList();
+                    var includePeers = cf.IncludePeers.Select(p => GetInputPeer(input, p)).ToList();
+                    var filter = new DialogFilter(cf.Id, false, false, false, false, false, false, false, false, cf.TitleNoanimate, cf.Title, cf.Emoticon, cf.Color, pinnedPeers, includePeers, new List<InputPeer>(), true);
+                    var command = new UpdateDialogFilterCommand(DialogFilterId.Create(input.UserId, obj.Id), input.ToRequestInfo(), input.UserId, filter);
+                    await commandBus.PublishAsync(command, default);
+                }
+                else
+                {
+                    throw new NotImplementedException();
+                }
             }
-            else
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         return new TBoolTrue();
     }

@@ -14,6 +14,6 @@ internal sealed class JoinChatlistUpdatesHandler : RpcResultObjectHandler<MyTele
 {
     protected override Task<MyTelegram.Schema.IUpdates> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Chatlists.RequestJoinChatlistUpdates obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.IUpdates>(new TUpdates { Chats = new(), Updates = new(), Users = new() });
     }
 }

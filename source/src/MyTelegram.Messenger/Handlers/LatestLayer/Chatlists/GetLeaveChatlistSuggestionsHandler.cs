@@ -14,6 +14,6 @@ internal sealed class GetLeaveChatlistSuggestionsHandler : RpcResultObjectHandle
 {
     protected override Task<TVector<MyTelegram.Schema.IPeer>> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Chatlists.RequestGetLeaveChatlistSuggestions obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult(new TVector<MyTelegram.Schema.IPeer>());
     }
 }

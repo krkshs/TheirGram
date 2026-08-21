@@ -13,6 +13,12 @@ internal sealed class GetExportedInvitesHandler : RpcResultObjectHandler<MyTeleg
 {
     protected override Task<MyTelegram.Schema.Chatlists.IExportedInvites> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Chatlists.RequestGetExportedInvites obj)
     {
-        throw new NotImplementedException();
+        var result = new MyTelegram.Schema.Chatlists.TExportedInvites
+        {
+            Invites = new MyTelegram.Schema.TVector<MyTelegram.Schema.IExportedChatlistInvite>(),
+            Chats = new MyTelegram.Schema.TVector<MyTelegram.Schema.IChat>(),
+            Users = new MyTelegram.Schema.TVector<MyTelegram.Schema.IUser>()
+        };
+        return Task.FromResult<MyTelegram.Schema.Chatlists.IExportedInvites>(result);
     }
 }

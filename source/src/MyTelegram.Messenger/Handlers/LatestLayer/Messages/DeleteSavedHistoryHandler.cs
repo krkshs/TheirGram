@@ -13,6 +13,6 @@ internal sealed class DeleteSavedHistoryHandler : RpcResultObjectHandler<MyTeleg
 {
     protected override Task<MyTelegram.Schema.Messages.IAffectedHistory> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Messages.RequestDeleteSavedHistory obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.Messages.IAffectedHistory>(new MyTelegram.Schema.Messages.TAffectedHistory { Pts = 0, PtsCount = 0, Offset = 0 });
     }
 }

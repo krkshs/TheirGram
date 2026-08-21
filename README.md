@@ -14,6 +14,8 @@ TheirGram is a self-hosted C# implementation of the Telegram server-side API, de
 - Private Chat
 - Supergroup Chat
 - Channel
+- Chatlist (Dialog Filters & Chat Folder Deep Links)
+- Direct Messages (MonoForum)
 
 ### Upcoming Features
 - End-to-End Encrypted Chat
@@ -27,13 +29,11 @@ TheirGram is a self-hosted C# implementation of the Telegram server-side API, de
 - Themes & Wallpapers
 - Auto-Delete Messages
 - Scheduled Messages
-- Chatlist
 - Telegram Business
 - Stories
 - Passkey Login
 - Email Login
 - Email Sender
-- Direct Messages
 - Push Server (Firebase)
 
 ---
