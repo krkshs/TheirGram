@@ -1,3 +1,4 @@
+using MongoDB.Driver;
 using MyTelegram.Converters.TLObjects.Payments;
 
 namespace MyTelegram.Messenger.Handlers.LatestLayer.Payments;
@@ -13,10 +14,50 @@ namespace MyTelegram.Messenger.Handlers.LatestLayer.Payments;
 /// <remarks>
 /// Access: [User ✔] [Bot ✖] [Anonymous ✖]
 /// </remarks>
-internal sealed class GetStarsStatusHandler(ILayeredService<IStarsStatusConverter> starsStatusLayeredService) : RpcResultObjectHandler<MyTelegram.Schema.Payments.RequestGetStarsStatus, MyTelegram.Schema.Payments.IStarsStatus>
+internal sealed class GetStarsStatusHandler(
+    ILayeredService<IStarsStatusConverter> starsStatusLayeredService,
+    IMongoClient mongoClient,
+    IPeerHelper peerHelper) : RpcResultObjectHandler<MyTelegram.Schema.Payments.RequestGetStarsStatus, MyTelegram.Schema.Payments.IStarsStatus>
 {
-    protected override Task<MyTelegram.Schema.Payments.IStarsStatus> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetStarsStatus obj)
+    protected override async Task<MyTelegram.Schema.Payments.IStarsStatus> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetStarsStatus obj)
     {
-        return Task.FromResult<MyTelegram.Schema.Payments.IStarsStatus>(starsStatusLayeredService.GetConverter(input.Layer).ToStarsStatus(obj.Ton));
+        try
+        {
+            var db = mongoClient.GetDatabase("tg");
+            var col = db.GetCollection<StarsBalanceDoc>("StarsBalance");
+            long targetId = input.UserId;
+            if (obj.Peer != null)
+            {
+                try
+                {
+                    var peer = peerHelper.GetPeer(obj.Peer, input.UserId);
+                    if (peer.PeerType == PeerType.User) targetId = peer.PeerId;
+                }
+                catch { }
+            }
+            var doc = await col.Find(Builders<StarsBalanceDoc>.Filter.Eq(x => x.UserId, targetId)).FirstOrDefaultAsync();
+            if (doc != null)
+            {
+                if (obj.Ton)
+                    return new MyTelegram.Schema.Payments.TStarsStatus
+                    {
+                        Balance = new MyTelegram.Schema.TStarsTonAmount { Amount = doc.Amount },
+                        Chats = [], Users = [], History = []
+                    };
+                return new MyTelegram.Schema.Payments.TStarsStatus
+                {
+                    Balance = new MyTelegram.Schema.TStarsAmount { Amount = doc.Amount },
+                    Chats = [], Users = [], History = []
+                };
+            }
+        }
+        catch { }
+        return starsStatusLayeredService.GetConverter(input.Layer).ToStarsStatus(obj.Ton);
+    }
+
+    private sealed class StarsBalanceDoc
+    {
+        public long UserId { get; set; }
+        public long Amount { get; set; }
     }
 }
