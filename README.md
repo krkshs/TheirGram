@@ -1,24 +1,21 @@
-# MyTelegram
+# TheirGram
 
-[![API Layer](https://img.shields.io/badge/API_Layer-228-blueviolet)](https://corefork.telegram.org/methods)
+[![API Layer](https://img.shields.io/badge/API_Layer-224-greengreen)](https://corefork.telegram.org/methods)
 [![MTProto](https://img.shields.io/badge/MTProto_Protocol-2.0-green)](https://corefork.telegram.org/mtproto/)
-[![MyTelegram Channel](https://img.shields.io/badge/Subscribe-_MyTelegram_Channel-0088cc)](https://t.me/+9wMJrMqLTIoyYzM8)
-[![MyTelegram Discussion Group](https://img.shields.io/badge/Join_-MyTelegram_Discussion_Group-0088cc)](https://t.me/+1MGvOgv34cUxYzhl)
+[![Direct](https://img.shields.io/badge/Direct-@vaggin-0088cc)](https://telegram.me/vaggin)
 
-MyTelegram is a self-hosted C# implementation of the Telegram server-side API, designed for private deployments and extensibility.
+TheirGram is a self-hosted C# implementation of the Telegram server-side API, designed for private deployments and extensibility. Fork of MyTelegram — layer 224 · `192.168.0.200:20443` · `gram.there.durov` · fingerprint `0xce27f5081215bda4`.
 
 ## Supported Features
 
-### Open Source Features
+### Current Features
 - [![API Layer](https://img.shields.io/badge/API_Layer-224-greengreen)](https://corefork.telegram.org/methods)
 - MTProto Transports: `Abridged`, `Intermediate`
 - Private Chat
 - Supergroup Chat
 - Channel
 
-### Pro Version Features
-- [![API Layer](https://img.shields.io/badge/API_Layer-228-blueviolet)](https://corefork.telegram.org/methods)
-- Multi-Layer Support (Layers 223–228)
+### Upcoming Features
 - End-to-End Encrypted Chat
 - Voice & Video Calls
 - Bot Support
@@ -41,7 +38,7 @@ MyTelegram is a self-hosted C# implementation of the Telegram server-side API, d
 
 ---
 
-## Running MyTelegram Server
+## Running TheirGram Server
 
 ### Run with Docker
 
@@ -70,7 +67,7 @@ docker compose up
 ### Linux / arm64
 `./build-all-arm64.sh`
 
-## MyTelegram Clients
+## TheirGram Clients
 
 | Platform | Repository |
 |----------|------------|
@@ -82,17 +79,15 @@ docker compose up
 
 ### Configure Clients
 1. Clone the client source code.  
-2. Search for `192.168.1.100` in all files and replace it with your own server IP.
+2. Search for `192.168.1.100` in all files and replace it with your own server IP (`192.168.0.200` for `gram.there.durov`).
 
 ---
 
-## Support MyTelegram
+## Support TheirGram
 
-If you find MyTelegram helpful, please consider giving the project a ⭐.
+If you find TheirGram helpful, please consider giving the project a ⭐.
 
 
 ## Feedback
 
-- Contact author: https://t.me/mytelegram666  
-- MyTelegram Channel: https://t.me/+9wMJrMqLTIoyYzM8  
-- Discussion Group: https://t.me/+1MGvOgv34cUxYzhl
+- Direct: https://telegram.me/vaggin
