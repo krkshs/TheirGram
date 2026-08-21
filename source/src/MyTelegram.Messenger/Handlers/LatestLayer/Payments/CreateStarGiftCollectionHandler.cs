@@ -14,6 +14,6 @@ internal sealed class CreateStarGiftCollectionHandler : RpcResultObjectHandler<M
 {
     protected override Task<MyTelegram.Schema.IStarGiftCollection> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestCreateStarGiftCollection obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.IStarGiftCollection>(new MyTelegram.Schema.TStarGiftCollection());
     }
 }

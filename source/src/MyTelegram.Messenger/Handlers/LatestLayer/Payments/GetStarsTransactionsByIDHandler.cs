@@ -14,6 +14,6 @@ internal sealed class GetStarsTransactionsByIDHandler : RpcResultObjectHandler<M
 {
     protected override Task<MyTelegram.Schema.Payments.IStarsStatus> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetStarsTransactionsByID obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.Payments.IStarsStatus>(new MyTelegram.Schema.Payments.TStarsStatus { Balance = new MyTelegram.Schema.TStarsAmount { Amount = 0 }, Chats = new(), Users = new() });
     }
 }

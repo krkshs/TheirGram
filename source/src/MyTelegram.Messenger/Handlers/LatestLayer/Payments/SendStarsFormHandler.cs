@@ -36,6 +36,6 @@ internal sealed class SendStarsFormHandler : RpcResultObjectHandler<MyTelegram.S
 {
     protected override Task<MyTelegram.Schema.Payments.IPaymentResult> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestSendStarsForm obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.Payments.IPaymentResult>(new MyTelegram.Schema.Payments.TPaymentResult());
     }
 }

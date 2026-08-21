@@ -13,6 +13,6 @@ internal sealed class LaunchPrepaidGiveawayHandler : RpcResultObjectHandler<MyTe
 {
     protected override Task<MyTelegram.Schema.IUpdates> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestLaunchPrepaidGiveaway obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.IUpdates>(new MyTelegram.Schema.TUpdates { Chats = new(), Updates = new(), Users = new() });
     }
 }

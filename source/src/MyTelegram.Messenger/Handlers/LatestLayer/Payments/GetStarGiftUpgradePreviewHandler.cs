@@ -14,6 +14,6 @@ internal sealed class GetStarGiftUpgradePreviewHandler : RpcResultObjectHandler<
 {
     protected override Task<MyTelegram.Schema.Payments.IStarGiftUpgradePreview> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetStarGiftUpgradePreview obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.Payments.IStarGiftUpgradePreview>(new MyTelegram.Schema.Payments.TStarGiftUpgradePreview());
     }
 }

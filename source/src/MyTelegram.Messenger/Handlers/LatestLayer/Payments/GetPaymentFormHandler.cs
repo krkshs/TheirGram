@@ -46,6 +46,6 @@ internal sealed class GetPaymentFormHandler : RpcResultObjectHandler<MyTelegram.
 {
     protected override Task<MyTelegram.Schema.Payments.IPaymentForm> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetPaymentForm obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.Payments.IPaymentForm>(new MyTelegram.Schema.Payments.TPaymentForm());
     }
 }

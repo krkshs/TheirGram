@@ -12,6 +12,6 @@ internal sealed class GetStarGiftAuctionStateHandler : RpcResultObjectHandler<My
 {
     protected override Task<MyTelegram.Schema.Payments.IStarGiftAuctionState> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetStarGiftAuctionState obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.Payments.IStarGiftAuctionState>(new MyTelegram.Schema.Payments.TStarGiftAuctionState());
     }
 }

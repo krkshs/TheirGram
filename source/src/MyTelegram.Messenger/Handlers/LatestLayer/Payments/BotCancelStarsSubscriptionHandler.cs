@@ -14,6 +14,6 @@ internal sealed class BotCancelStarsSubscriptionHandler : RpcResultObjectHandler
 {
     protected override Task<IBool> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestBotCancelStarsSubscription obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<IBool>(new MyTelegram.Schema.TBoolTrue());
     }
 }

@@ -14,6 +14,6 @@ internal sealed class CheckGiftCodeHandler : RpcResultObjectHandler<MyTelegram.S
 {
     protected override Task<MyTelegram.Schema.Payments.ICheckedGiftCode> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestCheckGiftCode obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.Payments.ICheckedGiftCode>(new MyTelegram.Schema.Payments.TCheckedGiftCode());
     }
 }

@@ -20,6 +20,6 @@ internal sealed class SendStarGiftOfferHandler : RpcResultObjectHandler<MyTelegr
 {
     protected override Task<MyTelegram.Schema.IUpdates> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestSendStarGiftOffer obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.IUpdates>(new MyTelegram.Schema.TUpdates { Chats = new(), Updates = new(), Users = new() });
     }
 }

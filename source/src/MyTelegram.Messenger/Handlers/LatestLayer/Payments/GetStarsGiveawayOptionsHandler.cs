@@ -10,6 +10,6 @@ internal sealed class GetStarsGiveawayOptionsHandler : RpcResultObjectHandler<My
 {
     protected override Task<TVector<MyTelegram.Schema.IStarsGiveawayOption>> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetStarsGiveawayOptions obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<TVector<MyTelegram.Schema.IStarsGiveawayOption>>(new TVector<MyTelegram.Schema.IStarsGiveawayOption>());
     }
 }

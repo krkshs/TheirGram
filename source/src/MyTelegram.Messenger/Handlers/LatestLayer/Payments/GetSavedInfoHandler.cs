@@ -10,6 +10,6 @@ internal sealed class GetSavedInfoHandler : RpcResultObjectHandler<MyTelegram.Sc
 {
     protected override Task<MyTelegram.Schema.Payments.ISavedInfo> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetSavedInfo obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.Payments.ISavedInfo>(new MyTelegram.Schema.Payments.TSavedInfo());
     }
 }

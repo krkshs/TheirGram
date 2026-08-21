@@ -13,6 +13,6 @@ internal sealed class FulfillStarsSubscriptionHandler : RpcResultObjectHandler<M
 {
     protected override Task<IBool> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestFulfillStarsSubscription obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<IBool>(new MyTelegram.Schema.TBoolTrue());
     }
 }

@@ -13,6 +13,6 @@ internal sealed class GetPaymentReceiptHandler : RpcResultObjectHandler<MyTelegr
 {
     protected override Task<MyTelegram.Schema.Payments.IPaymentReceipt> HandleCoreAsync(IRequestInput input, MyTelegram.Schema.Payments.RequestGetPaymentReceipt obj)
     {
-        throw new NotImplementedException();
+        return System.Threading.Tasks.Task.FromResult<MyTelegram.Schema.Payments.IPaymentReceipt>(new MyTelegram.Schema.Payments.TPaymentReceipt());
     }
 }
